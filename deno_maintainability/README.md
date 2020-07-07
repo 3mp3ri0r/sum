@@ -36,4 +36,4 @@ deno run test
 
 # TODO
 
-- [ ] Stub dependency so main flow can be tested
+- [x] Stub dependency so main flow can be tested
