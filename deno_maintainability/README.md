@@ -17,7 +17,7 @@ docker run -it --rm -v $PWD:/app -w /app hayd/alpine-deno:1.1.1 run src/main.ts 
 ### Run the tests
 
 ```shell
-docker run -it --rm -v $PWD:/app -w /app hayd/alpine-deno:1.1.1 run src/main.ts test
+docker run -it --init -v $PWD:/app hayd/alpine-deno:1.1.1 test
 ```
 
 ## Installed deno
@@ -31,7 +31,7 @@ deno run src/main.ts 10 20 30
 ### Run the tests
 
 ```shell
-deno run src/main.ts test
+deno run test
 ```
 
 # TODO

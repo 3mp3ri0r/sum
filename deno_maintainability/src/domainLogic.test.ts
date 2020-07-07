@@ -5,7 +5,6 @@ import {
   buildErrorsString,
   isNumber,
   sum,
-  transformTextToNumber,
   transformTextsToNumber,
   validateInputs,
 } from "./domainLogic.ts";
@@ -90,21 +89,10 @@ Deno.test("buildErrorString - case #4 - empty arguments", () => {
 });
 
 /***
- * Behaviour of domain logic transformTextToNumber
+ * Behaviour of domain logic transformTextsToNumber
  *
  * We do not need to test wether text passed to transformTextToNumber is valid because of
  * transformTextToNumber only called after successful validation.
- */
-Deno.test("transformTextToNumber - integer", () => {
-  assertEquals(transformTextToNumber("10"), 10);
-});
-
-Deno.test("transformTextToNumber - float", () => {
-  assertEquals(transformTextToNumber("0.1"), 0.1);
-});
-
-/***
- * Behaviour of domain logic transformTextsToNumber
  */
 Deno.test("transformTextsToNumber - integer", () => {
   assertEquals(transformTextsToNumber(["10", "20"]), [10, 20]);

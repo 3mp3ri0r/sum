@@ -25,9 +25,8 @@ export const buildErrorsString = (args: Array<string>): string => {
     );
 };
 
-export const transformTextToNumber = (text: string): number => parseFloat(text);
 export const transformTextsToNumber = (texts: Array<string>): Array<number> =>
-  texts.map((text) => transformTextToNumber(text));
+  texts.map((text) => parseFloat(text));
 
 export const sum = (numbers: Array<number>): number =>
   numbers.reduce((total, currentValue) => total + currentValue, 0);
