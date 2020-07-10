@@ -6,18 +6,16 @@ export const validateAndBuildResult = (args: Array<string>): string => {
   const [successResult, errorResult] = args.reduce(
     (previousTotalError, currentValue) => {
       const numericValue = parseFloat(currentValue);
-      if (!isNaN(numericValue))
-        return [previousTotalError[0] + numericValue, previousTotalError[1]];
-      else
-        return [
-          previousTotalError[0],
-          previousTotalError[1] !== ""
-            ? `${previousTotalError[1]}, ${currentValue} is not a valid integer`
-            : `${currentValue} is not a valid integer`,
-        ];
+      return !isNaN(numericValue)
+        ? [previousTotalError[0] + numericValue, previousTotalError[1]]
+        : [
+            previousTotalError[0],
+            previousTotalError[1] !== ""
+              ? `${previousTotalError[1]}, ${currentValue} is not a valid integer`
+              : `${currentValue} is not a valid integer`,
+          ];
     },
     [0, ""]
   );
-  if (errorResult !== "") return errorResult;
-  else return successResult.toString();
+  return errorResult !== "" ? errorResult : successResult.toString();
 };
